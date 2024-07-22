@@ -19,7 +19,7 @@ const ParentObjectCpt = () => {
         });
     }
     const handleUserFirstName = (event) => {
-        // event event.target.value 
+        // event event.target.value for getting the current value
         setUser((previousUser) => {
             return {
                 ...previousUser,
