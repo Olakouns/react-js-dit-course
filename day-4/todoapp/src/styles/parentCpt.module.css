@@ -1,0 +1,13 @@
+.input-class{
+    padding: 12px;
+    outline: 0;
+    border: 1px solid burlywood;
+}
+
+.dFlex{
+    display: flex;
+}
+/* 
+#element {
+    background-color: red;
+} */

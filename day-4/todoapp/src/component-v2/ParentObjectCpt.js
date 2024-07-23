@@ -36,7 +36,7 @@ const ParentObjectCpt = () => {
                 <p>Prenom : {user.firstName}</p>
             </div>
             <div>
-                <input onChange={handleUserLastName} placeholder="nom" />
+                <input className="input-class" onChange={handleUserLastName} placeholder="nom" />
                 <input onChange={handleUserFirstName} placeholder="prenom" />
             </div>
         </>
