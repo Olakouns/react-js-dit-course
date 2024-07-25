@@ -9,3 +9,15 @@
 ### best practice
 #### env => metadata (api_url, api_key)
 #### folder structure // react 
+
+
+#### method
+    - GET
+    - POST
+    - PUT
+    - PATCH
+    - OPTION
+    - DELETE
+
+##### env variable
+###### prefix : REACT_APP_(ENV_VAR_NAME)

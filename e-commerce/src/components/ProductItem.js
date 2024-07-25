@@ -1,17 +1,26 @@
 const ProductItem = ({ product }) => {
+  console.log("ProductItem");
   return (
-    <div className="card">
-      <img src="..." className="card-img-top" alt="..." />
+    <div className="card h-100">
+      <img src={product.images[0]} className="card-img-top card-image" alt={product.title} />
       <div className="card-body">
-        <h5 className="card-title">Card title</h5>
-        <span className="fw-bold text-primary">$10.0</span>
+        <h6 className="card-title fw-bold">{product.title}</h6>
+        <span className="fw-bold text-primary">${product.price}</span>
         <div className="my-2">
-            <span className="badge rounded-pill text-bg-secondary me-2">Secondary</span>
-            <span className="badge rounded-pill text-bg-secondary">Secondary</span>
+          {
+            // product.tags => [string]
+            product.tags.map((tag, index) => (
+              <span key={index} className="badge rounded-pill text-bg-secondary me-2">
+                {tag}
+              </span>
+            ))
+          }
         </div>
-        <a href="/" className="btn btn-sm btn-primary">
-          Go somewhere
-        </a>
+        <div className="d-flex justify-content-end mt-3">
+          <button className="btn btn-sm btn-primary">
+            Add to cart
+          </button>
+        </div>
       </div>
     </div>
   );
