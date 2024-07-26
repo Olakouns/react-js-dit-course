@@ -1,39 +1,41 @@
 import ProductList from "../components/ProductList";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { GetProducts } from "../services/ProductService";
 import { GetProductLoader } from "../utils/GetProductLoader";
+import { FilterProduct } from "../utils/FilterProduct";
+import { useFetchData } from "../hooks/UseFetchData";
 
 const ProductPage = () => {
-  // get data from server useMemo
   const [products, setProducts] = useState([]);
-  const [productsFilter, setProductsFilter] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [search, setSearch] = useState('');
+  // const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        let dataResponse = await GetProducts();
-        setProducts(dataResponse.data.products);
-        setProductsFilter(dataResponse.data.products);
-      } catch (error) {
-        console.log(error);
-      }
-      setLoading(false);
-    };
-    fetchData();
-  }, []); // componentDidMount
+  const [productsPage, loading, error] = useFetchData(`products`);
 
-  const filterProduct = (event) =>{
-    let search = event.target.value;
-    if(search.length === 0){
-      setProductsFilter(products);
-      return;
+  const productsMemo = useMemo(() => {
+    return FilterProduct(search, products)
+  }, [products, search]);
+
+
+  useEffect(()=> {
+    if (!loading) {
+      setProducts(productsPage.products)
     }
-    let newProducts = products.filter(product => product.title.includes(search));
-    setProductsFilter(newProducts);
-  }
+  }, [productsPage, loading])
 
-  console.log("ProductPage");
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       let dataResponse = await GetProducts();
+  //       setProducts(dataResponse.data.products);
+  //       // setProductsFilter(dataResponse.data.products);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //     setLoading(false);
+  //   };
+  //   fetchData();
+  // }, []); // componentDidMount
 
   return (
     <>
@@ -44,15 +46,15 @@ const ProductPage = () => {
           type="text"
           placeholder="search product by name"
           aria-label="default input example"
-          onChange={filterProduct}
+          onChange={(e) => setSearch(e.target.value)}
         />
       </div>
 
       {loading ? (
         <div className="row mt-4">{GetProductLoader()}</div>
-      ) : (
+      ) : error ? <div>error</div> : (
         <div className="mt-4">
-          <ProductList products={productsFilter} />
+          <ProductList products={productsMemo} />
         </div>
       )}
     </>

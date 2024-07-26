@@ -1,7 +1,8 @@
+import { memo } from "react";
 import ProductItem from "./ProductItem";
-
-const ProductList = ({ products }) => {
-  console.log("ProductList");
+// memo => [composant, function => previous state, current state]
+const ProductList = memo(({ products }) => {
+  // console.log("ProductList");
   return (
     <div className="row">
       {products.map((product) => (
@@ -11,6 +12,6 @@ const ProductList = ({ products }) => {
       ))}
     </div>
   );
-};
+});
 
 export default ProductList;

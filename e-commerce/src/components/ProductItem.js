@@ -1,7 +1,15 @@
-const ProductItem = ({ product }) => {
-  console.log("ProductItem");
+import { memo } from "react";
+import { useNavigate } from "react-router-dom";
+
+const ProductItem = memo(({ product }) => {
+  // console.log("ProductItem");
+  const navigate = useNavigate();
+
+  const handleClick =  () => {
+    navigate(`/products/${product.id}`)
+  }
   return (
-    <div className="card h-100">
+    <div className="card h-100 cursor-pointer" onClick={handleClick}>
       <img src={product.images[0]} className="card-img-top card-image" alt={product.title} />
       <div className="card-body">
         <h6 className="card-title fw-bold">{product.title}</h6>
@@ -24,6 +32,6 @@ const ProductItem = ({ product }) => {
       </div>
     </div>
   );
-};
+});
 
 export default ProductItem;

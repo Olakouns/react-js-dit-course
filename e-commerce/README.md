@@ -21,3 +21,11 @@
 
 ##### env variable
 ###### prefix : REACT_APP_(ENV_VAR_NAME)
+
+##### Routage
+    - configuration ...
+    - layout => global component -> display child components (pages) : ✅
+    - get variables from URL:
+        - Path variable : [products/{id_product}] =>  /products/1, /products/2,
+        - Query params : [products?var1=...&var2=...]   => products?search=dit&size=10
+    - display 404 page. : ✅
