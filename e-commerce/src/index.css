@@ -27,3 +27,9 @@ code {
 .cursor-pointer{
   cursor: pointer;
 }
+
+.cart-image{
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+}

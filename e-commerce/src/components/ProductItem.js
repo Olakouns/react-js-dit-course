@@ -1,13 +1,22 @@
 import { memo } from "react";
 import { useNavigate } from "react-router-dom";
 
-const ProductItem = memo(({ product }) => {
+const ProductItem = memo(({ product, handleAddToCart }) => {
   // console.log("ProductItem");
   const navigate = useNavigate();
 
   const handleClick =  () => {
     navigate(`/products/${product.id}`)
   }
+
+  const addToCart = (event) => {
+    event.stopPropagation();
+    handleAddToCart(product);
+    console.log("addToCart");
+  }
+
+  console.log("ProductItem");
+
   return (
     <div className="card h-100 cursor-pointer" onClick={handleClick}>
       <img src={product.images[0]} className="card-img-top card-image" alt={product.title} />
@@ -25,7 +34,7 @@ const ProductItem = memo(({ product }) => {
           }
         </div>
         <div className="d-flex justify-content-end mt-3">
-          <button className="btn btn-sm btn-primary">
+          <button className="btn btn-sm btn-primary" onClick={addToCart}>
             Add to cart
           </button>
         </div>

@@ -1,6 +1,12 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { CartContext } from "../contexts/CartContext";
 
 const NavBar = () => {
+  const {cart} = useContext(CartContext);
+
+  console.log(cart);
+
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary px-2">
       <div className="container-fluid">
@@ -43,7 +49,7 @@ const NavBar = () => {
           <button type="button" className="btn btn-primary position-relative">
             <i className="bi bi-cart"></i>
             <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-              0
+              {cart.length}
             </span>
           </button>
         </div>
