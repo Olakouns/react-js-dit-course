@@ -13,3 +13,6 @@
 ----------
 - Lastname, Firstname, repo Link, app link
 kounassolazare@gmail.com
+
+---------------
+Next.js => Framework
