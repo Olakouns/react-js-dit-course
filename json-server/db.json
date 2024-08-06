@@ -1,0 +1,44 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "a title",
+      "views": 100
+    },
+    {
+      "id": "3",
+      "title": "React js course",
+      "views": 700
+    },
+    {
+      "id": "4",
+      "title": "React redux",
+      "views": 700
+    },
+    {
+      "id": "773d",
+      "title": "Dit",
+      "views": 5000
+    },
+    {
+      "id": "5",
+      "title": "Dit",
+      "views": 5000
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "text": "a comment about post 1",
+      "postId": "1"
+    },
+    {
+      "id": "2",
+      "text": "another comment about post 1",
+      "postId": "1"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

@@ -1,7 +1,12 @@
 1- Details page of product
 2- Fixed quantity bugs (Cart part)
 3- Redux (react-redux, redux et redux tool-kits)
-    a - Change state Cart from context into Store (Redux) (D)
+    a - Change state Cart from context into Store (Redux) (D)  :  ✅
+    b - implement other function of cart slice file and apply modifications
+    c - keep the state in local storage => LocalStorage
+        - use localstore directly in each reducers function !
+        - redux toolkit middleware => ||||||||  
+    d - add toast to the project
 4- Home page
     a- Contact form 
         - Search : 
