@@ -1,9 +1,12 @@
 import { memo } from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { addProduct } from "../stores/CartSlice";
 
-const ProductItem = memo(({ product, handleAddToCart }) => {
+const ProductItem = memo(({ product }) => {
   // console.log("ProductItem");
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleClick =  () => {
     navigate(`/products/${product.id}`)
@@ -11,7 +14,8 @@ const ProductItem = memo(({ product, handleAddToCart }) => {
 
   const addToCart = (event) => {
     event.stopPropagation();
-    handleAddToCart(product);
+    dispatch(addProduct(product));
+    // handleAddToCart(product);
     // console.log("addToCart");
   }
 

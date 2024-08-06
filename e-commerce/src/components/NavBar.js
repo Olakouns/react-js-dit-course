@@ -1,10 +1,13 @@
-import { useContext } from "react";
+// import { useContext } from "react";
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { CartContext } from "../contexts/CartContext";
+// import { CartContext } from "../contexts/CartContext";
 
 const NavBar = () => {
-  const { cart } = useContext(CartContext);
-
+  // const { cart } = useContext(CartContext);
+  // const cart = useSelector(cartReducer);
+  const cart = useSelector(state => state.cart);
+  // const cart = [];
   console.log(cart);
 
   return (

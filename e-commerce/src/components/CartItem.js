@@ -1,9 +1,12 @@
 import { memo } from "react";
+import { useDispatch } from "react-redux";
+import { removeProduct } from "../stores/CartSlice";
 
-const CartItem = memo(({ cartItem, handleDeleteItem, handleModification }) => {
-  
-    console.log("CartItem");
-    return (
+const CartItem = memo(({ cartItem }) => {
+  const dispatch = useDispatch();
+
+  console.log("CartItem");
+  return (
     <div className="mb-4 card d-flex flex-row justify-content-between align-items-center p-3">
       <div className="d-flex align-items-center">
         <img
@@ -18,17 +21,26 @@ const CartItem = memo(({ cartItem, handleDeleteItem, handleModification }) => {
       </div>
 
       <div>
-        <button onClick={() => handleModification(cartItem, 1)} className="btn btn-sm btn-primary">
+        <button
+          onClick={() => {}}
+          className="btn btn-sm btn-primary"
+        >
           <i className="bi bi-plus"></i>
         </button>
         <span className="mx-3">{cartItem.quantity}</span>
-        <button onClick={() => handleModification(cartItem, -1)} className="btn btn-sm btn-primary">
+        <button
+          onClick={() => {}}
+          className="btn btn-sm btn-primary"
+        >
           <i className="bi bi-dash"></i>
         </button>
       </div>
 
       <div>
-        <button onClick={() => handleDeleteItem(cartItem)} className="btn btn-sm btn-danger">
+        <button
+          onClick={() => dispatch(removeProduct(cartItem.product.id))}
+          className="btn btn-sm btn-danger"
+        >
           <i className="bi bi-trash"></i>
         </button>
       </div>

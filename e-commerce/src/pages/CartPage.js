@@ -2,41 +2,44 @@ import { useCallback, useContext } from "react";
 import { CartContext } from "../contexts/CartContext";
 import CartItem from "../components/CartItem";
 import { toast } from "react-toastify";
+import { useSelector } from "react-redux";
 
 const CartPage = () => {
-  const { cart, setCart } = useContext(CartContext);
+  // const { cart, setCart } = useContext(CartContext);
 
-  const deleteItem = useCallback((item) => {
-    setCart((prevCart) => {
-        const newCart = prevCart.filter(element => element.product.id !== item.product.id)
-        localStorage.setItem("CART", JSON.stringify(newCart));
-        return newCart;
-    });
-    toast(`${item.product.title} removed from cart`);
-  }, [setCart]);
+  const cart = useSelector(state => state.cart);
 
-  const modifyQuantity = useCallback((item, increment) => {
-    if (item.quantity + increment === 0) {
-        deleteItem(item);
-        return;
-    }
+  // const deleteItem = useCallback((item) => {
+  //   setCart((prevCart) => {
+  //       const newCart = prevCart.filter(element => element.product.id !== item.product.id)
+  //       localStorage.setItem("CART", JSON.stringify(newCart));
+  //       return newCart;
+  //   });
+  //   toast(`${item.product.title} removed from cart`);
+  // }, [setCart]);
 
-    setCart((prevCart) => {
-        const newCart = prevCart.map(element => {
-            if(element.product.id === item.product.id){
-                return {
-                    ...element,
-                    quantity : element.quantity + increment
-                }
-            }
+  // const modifyQuantity = useCallback((item, increment) => {
+  //   if (item.quantity + increment === 0) {
+  //       deleteItem(item);
+  //       return;
+  //   }
 
-            return element;
-        })
-        localStorage.setItem("CART", JSON.stringify(newCart));
-        return newCart;
-    })
+  //   setCart((prevCart) => {
+  //       const newCart = prevCart.map(element => {
+  //           if(element.product.id === item.product.id){
+  //               return {
+  //                   ...element,
+  //                   quantity : element.quantity + increment
+  //               }
+  //           }
 
-  }, [setCart, deleteItem]);
+  //           return element;
+  //       })
+  //       localStorage.setItem("CART", JSON.stringify(newCart));
+  //       return newCart;
+  //   })
+
+  // }, [setCart, deleteItem]);
 
   return (
     <>
@@ -44,7 +47,7 @@ const CartPage = () => {
       <div>
         {cart.length === 0 && <h6>Cart is empty</h6>}
         {cart.map((item) => (
-          <CartItem handleModification={modifyQuantity} handleDeleteItem={deleteItem} key={item.product.id} cartItem={item} />
+          <CartItem key={item.product.id} cartItem={item} />
         ))}
       </div>
     </>
