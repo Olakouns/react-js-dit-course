@@ -1,6 +1,6 @@
 import ProductList from "../components/ProductList";
 import { useEffect, useMemo, useState } from "react";
-import { GetProducts } from "../services/ProductService";
+// import { GetProducts } from "../services/ProductService";
 import { GetProductLoader } from "../utils/GetProductLoader";
 import { FilterProduct } from "../utils/FilterProduct";
 import { useFetchData } from "../hooks/UseFetchData";

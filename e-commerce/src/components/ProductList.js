@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 // memo => [composant, function => previous state, current state]
 const ProductList = memo(({ products }) => {
   const {setCart } = useContext(CartContext);
-  console.log("ProductList");
+  // console.log("ProductList");
 
   // todo : fixed quantity error
   const addToCart = useCallback((product) => {

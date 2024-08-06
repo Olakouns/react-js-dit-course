@@ -1,9 +1,9 @@
 import { useContext } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { CartContext } from "../contexts/CartContext";
 
 const NavBar = () => {
-  const {cart} = useContext(CartContext);
+  const { cart } = useContext(CartContext);
 
   console.log(cart);
 
@@ -27,11 +27,7 @@ const NavBar = () => {
         <div className="collapse navbar-collapse" id="navbarText">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <NavLink
-                className="nav-link"
-                aria-current="page"
-                to="/"
-              >
+              <NavLink className="nav-link" aria-current="page" to="/">
                 Home
               </NavLink>
             </li>
@@ -46,12 +42,14 @@ const NavBar = () => {
               </NavLink>
             </li>
           </ul>
-          <button type="button" className="btn btn-primary position-relative">
+          <NavLink className="btn btn-primary position-relative" to="/cart">
+            {/* <button type="button" className="btn btn-primary position-relative"> */}
             <i className="bi bi-cart"></i>
             <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
               {cart.length}
             </span>
-          </button>
+            {/* </button> */}
+          </NavLink>
         </div>
       </div>
     </nav>

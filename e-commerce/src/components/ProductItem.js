@@ -12,10 +12,10 @@ const ProductItem = memo(({ product, handleAddToCart }) => {
   const addToCart = (event) => {
     event.stopPropagation();
     handleAddToCart(product);
-    console.log("addToCart");
+    // console.log("addToCart");
   }
 
-  console.log("ProductItem");
+  // console.log("ProductItem");
 
   return (
     <div className="card h-100 cursor-pointer" onClick={handleClick}>

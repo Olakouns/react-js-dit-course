@@ -29,3 +29,44 @@
         - Path variable : [products/{id_product}] =>  /products/1, /products/2,
         - Query params : [products?var1=...&var2=...]   => products?search=dit&size=10
     - display 404 page. : ✅
+
+
+
+---------------------------- redux | ... | ... 
+1 - install redux ()
+2 - configuration 
+3 - test
+
+--------------------------- : 
+# store : [ .. , ... , ... ,... , ... ] :  package
+# action : 
+# reducers : 
+
+cart : ====> cart  => (store)
+action : (action type)
+    - add product to cart => ADD_PRODUCT_TO_CART
+    - delete product from cart => DEL_PRODUCT_FROM_CART
+    - increment product quantity => INCREMENT_PRO_QTY
+    - decrement product quantity => DECREMENT_PRO_QTY
+reducers : 
+    functions => type d'action
+switch => action type => function (reducers)
+
+- redux , react-redux, react toolkits
+
+addTodo("value")
+# ...
+[
+    .....
+    ...
+    ..
+    .
+]
+
+[
+    [....]
+    [.....]
+    ..
+    ..
+    ..
+]
